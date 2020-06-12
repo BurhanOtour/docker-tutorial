@@ -94,6 +94,7 @@ Following is an example for creating and hooking our project directory inside of
 
 `reactapp-dev > docker run -p 3000:3000 -v $(pwd)/src:/app/src <image_id>`
 
+We can make us of [docker compose](frontend/docker-compose.yml) to make life much easeier when running containers.
 
 
 
