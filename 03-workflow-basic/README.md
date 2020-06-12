@@ -66,9 +66,9 @@ As `Dockerfile.dev` is not a standard input for `docker build` command, we need 
 
 `> docker build -f Dockerfile.dev -t botour/reactappp-dev .`
 
-To run the development react app image:
+To run the react app frontend container:
 
-`docker run -it -p 3000:3000 botour/reacpp-dev` . 
+`docker run -it -p 3000:3000 botour/reactapp-dev` . 
 
 Then, open your `localhost:3000` in browser.
 
