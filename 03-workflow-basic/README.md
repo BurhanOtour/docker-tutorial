@@ -72,6 +72,28 @@ To run the react app frontend container:
 
 Then, open your `localhost:3000` in browser.
 
+## Live Editing
+
+When we build an image, we take a snapshot of our porject directory (src, config, etc...) and put it in the working directory of the image  using `COPY . .`. Hence, when we run a the cotainer out of that image and later do changes to our react app code base, those changes are not reflected in running version of the app.s
+
+We could however, hook the project files inside of a docker container to local project directory. 
+
+This happen at runtime, i.e. when we run a container (not when we create the image). This is enabled by using a feature in Docker called **Volumes**.s
+
+Note: this feature is usefull for **DEVELOPMENT ONLY** purposess.
+
+Following is an example for creating and hooking our project directory inside of the container to local source code directory using volumes: 
+
+`reactapp-dev > docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app <image_id>`
+
+### Bookmarking Volumes
+
+`-v /app/node_modules`, don't try to map it up to anything else inside of local directory.  
+
+### Better Command?
+
+`reactapp-dev > docker run -p 3000:3000 -v $(pwd)/src:/app/src <image_id>`
+
 
 
 
