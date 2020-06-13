@@ -12,4 +12,17 @@ services:
             - /app/node_modules
             - .:/app
 
+    tests:
+        stdin_open: true 
+        #tty: true 
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
+        volumes:
+            - /app/node_modules
+            - .:/app
+        # The following override the command in the Dockerfile.dev
+        command: ["npm", "run", "test"]
+
+
 
